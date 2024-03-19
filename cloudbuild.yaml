@@ -1,7 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/silicon-monitor-417609/helloworld', '.']
-images:
-- 'gcr.io/silicon-monitor-417609/helloworld'
-options:
-  logging: CLOUD_LOGGING_ONLY
