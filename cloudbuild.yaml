@@ -11,7 +11,7 @@ steps:
 
   # Deploy to Cloud Run
   - name: google/cloud-sdk
-    args: ['gcloud', 'run', 'deploy', 'helloworld-${SHORT_SHA}',
+    args: ['gcloud', 'run', 'deploy', 'helloworld',
            '--image=europe-southwest1-docker.pkg.dev/${PROJECT_ID}/myimage:${SHORT_SHA}',
            '--region', 'europe-southwest1', '--platform', 'managed',
            '--allow-unauthenticated']
@@ -24,4 +24,4 @@ artifacts:
       - ${SHORT_SHA}_test_log.xml
 # Store images in Google Artifact Registry.
 images:
-  - europe-southwest1-docker.pkg.dev/${PROJECT_ID}/myimage:${SHORT_SHA}q
+  - europe-southwest1-docker.pkg.dev/${PROJECT_ID}/myimage:${SHORT_SHA}
