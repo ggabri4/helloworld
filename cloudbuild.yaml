@@ -7,13 +7,13 @@ steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t',
-           'us-central1-docker.pkg.dev/${PROJECT_ID}${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}', '.']
+           'europe-southwest1-docker.pkg.dev/${PROJECT_ID}/myimage:${SHORT_SHA}', '.']
 
   # Deploy to Cloud Run
   - name: google/cloud-sdk
     args: ['gcloud', 'run', 'deploy', 'helloworld-${SHORT_SHA}',
-           '--image=us-central1-docker.pkg.dev/${PROJECT_ID}${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}',
-           '--region', 'us-central1', '--platform', 'managed',
+           '--image=europe-southwest1-docker.pkg.dev/${PROJECT_ID}/myimage:${SHORT_SHA}',
+           '--region', 'europe-southwest1', '--platform', 'managed',
            '--allow-unauthenticated']
 
 # Save test logs to Google Cloud Storage
@@ -24,4 +24,4 @@ artifacts:
       - ${SHORT_SHA}_test_log.xml
 # Store images in Google Artifact Registry.
 images:
-  - us-central1-docker.pkg.dev/${PROJECT_ID}${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}
+  - europe-southwest1-docker.pkg.dev/${PROJECT_ID}/myimage:${SHORT_SHA}q
