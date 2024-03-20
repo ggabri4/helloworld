@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  flaskapp:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+    volumes:
+      - .:/app
+    command: >
+      gunicorn --bind :8080 --workers 1 --threads 8 --timeout 0 --reload main:app
