@@ -26,6 +26,6 @@ artifacts:
     location: gs://${_BUCKET_NAME}/
     paths:
       - ${SHORT_SHA}_test_log.xml
-# Store images in Google Artifact Registry
+# Store images in Google Artifact Registry.
 images:
   - us-central1-docker.pkg.dev/${PROJECT_ID}${_ARTIFACT_REGISTRY_REPO}/myimage:${SHORT_SHA}
